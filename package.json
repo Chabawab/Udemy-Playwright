@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test tests/WebAPIPart2.spec.js --headed",
+    "_comment": "To dubug APIs from VS code. <Debug: Debug npm Script>"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
