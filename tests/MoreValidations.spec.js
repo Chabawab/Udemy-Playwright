@@ -26,3 +26,22 @@ test('Popup Validations', async({page}) =>
 
 
 })
+
+test("Screenshot & Visual comparision", async({page}) => {
+
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+    await expect(page.locator('#displayed-text')).toBeVisible();
+    await page.locator('#displayed-text').screenshot({path: 'ParticialScreenshot.png'});//screenshot of a specific element
+    await page.locator('#hide-textbox').click();
+    await page.screenshot({path: 'screenshot.png'}); //Screenshot of the whole page.
+    await expect(page.locator('#displayed-text')).toBeHidden();
+
+});
+
+
+//Compare original screenshot of a page to future versions of screenshots on the page. Throws errors if theres a difference
+//First run will fail because there no initial image and the program will create one
+test.only('Visual testing' , async({page})=>{
+    await page.goto('https://www.flightaware.com/');
+    expect(await page.screenshot()).toMatchSnapshot('landing.png');
+})

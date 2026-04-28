@@ -63,7 +63,7 @@ const { test, expect } = require('@playwright/test');
 test('@Webst Client App login', async ({ page }) => {
    //js file- Login js, DashboardPage
    const email = "anshika@gmail.com";
-   const productName = 'ZARA COAT 4';
+   const productName = 'ZARA COAT 3';
    const products = page.locator(".card-body");
    await page.goto("https://rahulshettyacademy.com/client");
    await page.locator("#userEmail").fill(email);
